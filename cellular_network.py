@@ -56,7 +56,7 @@ def calculate_global_statistics(base_stations, grid_point, tolerance = 1e-6):
     antenna_coverage_count = defaultdict(int)
     # automatically create key and initialize its value to 0 if key isn't in dictionary
 
-    # go trhough every point in grid, check if they match with points from json file to find covered points
+    # go through every point in grid, check if they match with points from json file to find covered points
     # create dictionary that has as value which is the number of antennas it is covered by
     for point in grid_point:
         for bs in base_stations:
@@ -105,6 +105,8 @@ def calculate_base_station_statistics(base_station, grid_points, tolerence = 1e-
     points_coverage = defaultdict(int)
     antenna_coverage_count = defaultdict(int)    
 
+    # go through every point in grid, check if they match with points from json file to find covered points
+    # create dictionary that has as value which is the number of antennas the point is covered by
     for point in grid_points:
         for ant in base_station.antennas:
             for pt in ant.points:
@@ -122,6 +124,7 @@ def calculate_base_station_statistics(base_station, grid_points, tolerence = 1e-
 
     max_antenna = max(antenna_coverage_count, key = antenna_coverage_count.get, default = None)
 
+    # print output
     print(f"\nBASE STATION #{base_station.id} STATISTICS:")
     print(f"Total number of antennas: {antennas_nb}")
     print(f"Points covered by exactly one antenna: {one_antenna}")
@@ -139,6 +142,8 @@ def find_nearest_antenna(lat, lon, base_stations):
     min_distance = float('inf')
     nearest_antenna_info = None
 
+    # check for each point in grid the absolute value of the distance to the entered point
+    # if we find a shorter distance, the distance gets updated this way we can find the nearest antenna
     for bs in base_stations:
         for ant in bs.antennas:
             for pt in ant.points:
@@ -149,9 +154,11 @@ def find_nearest_antenna(lat, lon, base_stations):
 
     return nearest_antenna_info
 
+# check if the point entered by user is already covered
 def check_coverage(lat, lon, base_stations, tolerance=1e-6):
     covered_by = []
-    
+
+    # go through all points in base station to check if we find a point that has the same coordinates as the entered point
     for bs in base_stations:
         for ant in bs.antennas:
             for pt in ant.points:
@@ -162,6 +169,7 @@ def check_coverage(lat, lon, base_stations, tolerance=1e-6):
         print(f"\nThe point ({lat}, {lon}) is covered by the following antennas:")
         for bs_id, ant_id, power in covered_by:
             print(f"Base station {bs_id}, Antenna {ant_id}, Power: {power}")
+    # case where the point is not covered, we call the find nearest antenna function
     else:
         nearest_antenna = find_nearest_antenna(lat, lon, base_stations)
         if nearest_antenna:
@@ -221,19 +229,20 @@ def main():
             elif choice == "2.1":
                 calculate_base_station_statistics(random.choice(base_stations), grid_points)
             elif choice == "2.2":
-                while True:
+                while True: # loop that keeps going until you enter a valid station
                     station_id = int(input("Please enter station id: "))
+                    # check if the station exists
                     station = next((bs for bs in base_stations if bs.id == station_id), None)
                     if station:
                         calculate_base_station_statistics(station, grid_points)
                         break
                     else:
                         print("Invalid base station ID. Please try again.")
-            elif choice == "3":
+            elif choice == "3": # ask user for latitude and longitude and call function
                 lat = float(input("Enter latitude: "))
                 lon = float(input("Enter longitude: "))
                 check_coverage(lat, lon, base_stations)
-            elif choice == "4":
+            elif choice == "4": # exit program
                 print("\nhope you had fun, exiting the program ... ")
                 break
             else:
