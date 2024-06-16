@@ -1,0 +1,131 @@
+python3 cellular_network.py test_file.json
+
+Welcome to Dalia's cellular network analysis program !
+********************************************************
+
+Data was loaded successfully from file...
+
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 1
+
+GLOBAL STATISTICS:
+Total number of base stations: 2
+Total number of antennas: 3
+Max, min, average antennas in a base station: 2, 1, 1.50
+Points covered by exactly one antenna: 7
+Points covered by more than one antenna: 3
+Points covered by no antennas: 111
+Max antennas covering a single point: 2
+Average antennas covering each point: 1.30
+Percentage of area covered: 8.26%
+Base station and antenna covering the maximum number of points: base station 1, antenna 2
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 2.1
+
+BASE STATION #2 STATISTICS:
+Total number of antennas: 1
+Points covered by exactly one antenna: 4
+Points covered by more than one antenna: 0
+Points covered by no antennas: 117
+Max antennas covering a single point: 1
+Average antennas covering each point: 1.00
+Percentage of area covered: 3.31%
+Antenna covering the maximum number of points: antenna 3
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 2.2
+Please enter station id: 1
+
+BASE STATION #1 STATISTICS:
+Total number of antennas: 2
+Points covered by exactly one antenna: 5
+Points covered by more than one antenna: 2
+Points covered by no antennas: 114
+Max antennas covering a single point: 2
+Average antennas covering each point: 1.29
+Percentage of area covered: 5.79%
+Antenna covering the maximum number of points: antenna 2
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 3
+Enter latitude: 45.01
+Enter longitude: -73
+
+The point (45.01, -73.0) is covered by the following antennas:
+Base station 1, Antenna 1, Power: -63.216
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 3
+Enter latitude: 45.02
+Enter longitude: -73.02
+
+The point (45.02, -73.02) is covered by the following antennas:
+Base station 1, Antenna 1, Power: -63.546
+Base station 1, Antenna 2, Power: -56.163
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 3
+Enter latitude: 45.0
+Enter longitude: 73.0
+
+The point (45.0, 73.0) is not explicitly covered by any antenna.
+The nearest antenna is at (45.01, -73.0) with base station 1 and antenna 1. Power: -63.216
+
+Please select option from the menu:
+        1. Display Global Statistics
+        2. Display Base Station Statistics
+                2.1. Statistics for a random station
+                2.2. Choose a station by Id
+        3. Check Coverage
+        4. Exit
+
+Enter your choice: 4
+
+hope you had fun, exiting the program ... 
+
+Thanks for using my program, have a great day :) !!
+***               - Dalia <3 -                  ***
