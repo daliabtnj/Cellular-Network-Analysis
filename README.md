@@ -25,5 +25,5 @@ This Python program analyzes the coverage and statistics of a cellular network p
 Run the script with a JSON input file: `python3 cellular_network.py test_file.json`
 
 ## Example JSON File
-The repository includes an example JSON file (`data.json`) for testing purposes.
+The repository includes an example JSON file (`test_file.json`) for testing purposes.
 
